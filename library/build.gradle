@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 4
+        targetSdkVersion 22
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['Parse-*.jar'])
+    compile 'com.parse.bolts:bolts-android:1.2.0'
+    compile 'com.android.support:support-v4:22.0.0'
+}
+
+// Apply chrisbanes' excellent gradle-mvn-push recipe,
+// which lets us publish the build artifacts to maven
+// without *writing a single line of XML.*
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
